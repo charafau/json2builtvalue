@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:built_collection/src/list.dart';
-import 'package:json2builtval/parser.dart';
+import 'package:json2builtvalue/parser.dart';
 import 'package:test/test.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
-import 'package:json2builtval/root.dart';
 
 main() {
   final _dartfmt = new DartFormatter();
@@ -41,8 +40,6 @@ main() {
 //  """;
 
   test('should parse json', () {
-
-
     final parser = new Parser();
 
     var parse = parser.parse(jsonString);
@@ -51,6 +48,4 @@ main() {
 
     expect(true, true);
   });
-
-
 }

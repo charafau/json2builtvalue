@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:built_collection/src/list.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
-import 'package:json2builtval/root.dart';
+import 'package:json2builtvalue/root.dart';
 import 'package:recase/recase.dart';
 import 'package:tuple/tuple.dart';
 
@@ -38,9 +38,8 @@ class Parser {
 //    });
 
     String reduce = allClasses
-        .map((tuple) => _generateStringClass(tuple.item2, tuple.item1 + 'Dto')).reduce((s1, s2) => s1 + s2);
-
-
+        .map((tuple) => _generateStringClass(tuple.item2, tuple.item1 + 'Dto'))
+        .reduce((s1, s2) => s1 + s2);
 
     return reduce;
   }

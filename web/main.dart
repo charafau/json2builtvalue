@@ -1,5 +1,5 @@
 import 'dart:html';
-import 'package:json2builtval/parser.dart';
+import 'package:json2builtvalue/parser.dart';
 
 void main() {
 //  querySelector('#output').text = 'Your Dart app is running.';
