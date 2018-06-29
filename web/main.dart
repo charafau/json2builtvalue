@@ -14,12 +14,12 @@ void main() {
       String json = elementById.value;
       print('json is $json');
       Parser parser = new Parser();
-//      String outputClasses = parser.parse(json);
+     String outputClasses = parser.parse(json);
 
-//      outputText.text = outputClasses;
-      outputText.text = json;
+     outputText.text = outputClasses;
+      // outputText.text = json;
     } catch (e) {
-      outputText.text = 'Error';
+      outputText.text = 'Error: ${e.toString()}';
     }
   });
 }

@@ -42,7 +42,7 @@ main() {
   test('should parse json', () {
     final parser = new Parser();
 
-    var parse = parser.parse(jsonString);
+    var parse = parser.parse(jsonString, 'TopLevel');
 
     print(parse);
 

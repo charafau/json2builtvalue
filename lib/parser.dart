@@ -10,7 +10,7 @@ import 'package:tuple/tuple.dart';
 class Parser {
   final _dartfmt = new DartFormatter();
 
-  String parse(String jsonString) {
+  String parse(String jsonString, String topLevelName) {
     var decode = json.decode(jsonString);
 
     List<Tuple2<String, List<Subtype>>> allClasses = [];
@@ -19,7 +19,7 @@ class Parser {
     if (decode is List) {}
 
     List<Subtype> topLevel = _getTypedClassFields(decode);
-    allClasses.add(new Tuple2('Recipe', topLevel));
+    allClasses.add(new Tuple2(topLevelName, topLevel));
 
     topLevel.forEach((Subtype s) {
       if ((s.type == JsonType.LIST && s.listType == JsonType.MAP) ||
@@ -31,14 +31,14 @@ class Parser {
 
 //    print('all: $allClasses');
 
-    String output = _generateStringClass(topLevel, 'Root');
+    String output = _generateStringClass(topLevel, topLevelName);
 
 //    allClasses.forEach((Tuple2<String, List<Subtype>> tuple){
 //      _generateStringClass(tuple.item2, tuple.item1 + 'Dto');
 //    });
 
     String reduce = allClasses
-        .map((tuple) => _generateStringClass(tuple.item2, tuple.item1 + 'Dto'))
+        .map((tuple) => _generateStringClass(tuple.item2, tuple.item1))
         .reduce((s1, s2) => s1 + s2);
 
     return reduce;
@@ -73,12 +73,14 @@ class Parser {
         ..type = MethodType.getter
         ..name = 'serializer'
         ..static = true
+        ..lambda = true
         ..returns =
             new Reference('Serializer<${_getPascalCaseClassName(name)}>')
-        ..body = new Code('return _\$${ReCase(name).camelCase}Serializer;')))
+        ..body = new Code('_\$${ReCase(name).camelCase}Serializer')))
       ..constructors.add(new Constructor((b) => b
         ..factory = true
-        ..body = Code('return _\$${_getPascalCaseClassName(name)};')
+        ..lambda = true
+        ..body = Code('_\$${_getPascalCaseClassName(name)}')
         ..requiredParameters.add(new Parameter((b) => b
           ..name = '[updates(${_getPascalCaseClassName(name)}Builder b)]')))));
 
