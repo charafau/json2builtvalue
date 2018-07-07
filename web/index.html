@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,40 +12,39 @@
     <link rel="icon" href="favicon.ico">
     <script defer src="main.dart.js"></script>
     <style>
-    .inline-div {
-    display:inline-block;
-    width: 100%;
-    height: 100%;
+        .inline-div {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
 
-    margin: 0 auto;
-}
+            margin: 0 auto;
+        }
+
         .inline-txtarea {
-        width: 48%;
-   height: 90vh;
-    border : 2px solid grey;
+            width: 48%;
+            height: 90vh;
+            border: 2px solid grey;
 
-    margin: 0 auto;
-}
-
-
-
-
+            margin: 0 auto;
+        }
     </style>
 </head>
 
 <body>
 
-<div style="margin-left: 24px;">
-    <h2 style="display: inline-block;">Json to Dart built_value class converter</h2>
-    Root class name: <input id="root_class_name" type="text" value="Root"></input>
-    <input id="convert" type="submit" value="Convert"></input>
-</div>
-<div id="texts" class="inline-div">
-    <center>
-        <textarea id="input_text" class="inline-txtarea"></textarea>
-        <textarea id="output_text" class="inline-txtarea"></textarea>
-    </center>
-</div>
+    <div style="margin-left: 24px;">
+        <h2 style="display: inline-block;">Json to Dart built_value class converter</h2>
+        Root class name:
+        <input id="root_class_name" type="text" value="RootDto"></input>
+        <input id="convert" type="submit" value="Convert"></input>
+    </div>
+    <div id="texts" class="inline-div">
+        <center>
+            <textarea id="input_text" class="inline-txtarea"></textarea>
+            <textarea id="output_text" class="inline-txtarea"></textarea>
+        </center>
+    </div>
 
 </body>
+
 </html>

@@ -127,9 +127,9 @@ class Parser {
       case JsonType.STRING:
         return new Reference('String');
       case JsonType.MAP:
-        return new Reference('Map');
+        return new Reference(new ReCase(subtype.name).pascalCase);
       case JsonType.LIST:
-        return new Reference('List<${_getDartTypeFromJsonType(subtype)}>');
+        return new Reference('BuiltList<${_getDartTypeFromJsonType(subtype)}>');
       default:
         return new Reference('dynamic');
     }
