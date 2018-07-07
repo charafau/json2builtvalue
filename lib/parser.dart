@@ -57,7 +57,7 @@ class Parser {
         ..name = 'toJson'
         ..returns = new Reference('String')
         ..body = new Code(
-            'json.encode(serializers.serializeWith(${_getPascalCaseClassName(
+            'return json.encode(serializers.serializeWith(${_getPascalCaseClassName(
                 name)}.serializer, this));')))
       ..methods.add(new Method((b) => b
         ..name = 'fromJson'
@@ -79,10 +79,11 @@ class Parser {
         ..body = new Code('_\$${ReCase(name).camelCase}Serializer')))
       ..constructors.add(new Constructor((b) => b
         ..factory = true
-        ..lambda = true
-        ..body = Code('_\$${_getPascalCaseClassName(name)}')
+        ..redirect = refer(' _\$${_getPascalCaseClassName(name)}')
         ..requiredParameters.add(new Parameter((b) => b
-          ..name = '[updates(${_getPascalCaseClassName(name)}Builder b)]')))));
+        ..defaultTo = Code('= _\$${_getPascalCaseClassName(name)}')
+          ..name = '[updates(${_getPascalCaseClassName(name)}Builder b)]'))),)
+          );
 
     String classString = topLevelClass.accept(new DartEmitter()).toString();
 

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="scaffolded-by" content="https://github.com/google/stagehand">
-    <title>json2builtval</title>
+    <title>Json to built_value generator</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -26,14 +26,16 @@
         .inline-txtarea {
             width: 48%;
             height: 90vh;
-            border: 2px solid grey;
+            border: 1px solid #eeeeee;
+            /* color: #ffffff; */
             font-size: 11pt;
             margin: 0 auto;
+            /* background-color: #37373F; */
         }
     </style>
 </head>
 
-<body class="mdl-color--blue-grey-700">
+<body >
 
     <!-- <div style="margin-left: 24px;">
         <h2 style="display: inline-block;">Json to Dart built_value class converter</h2>
@@ -41,7 +43,7 @@
         <input id="root_class_name" type="text" value="RootDto"></input>
         <input id="convert" type="submit" value="Convert"></input>
     </div> -->
-    <div class="mdl-layout__header-row mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+    <div class="mdl-layout__header-row header" >
         <span class="mdl-layout-title">Json to Dart built_value class converter </span>
         <div style="margin-left: 10px;">
             <input id="root_class_name" type="text" value="RootDto"></input>
@@ -50,8 +52,8 @@
     </div>
     <div id="texts" class="inline-div">
         <center>
-            <textarea id="input_text" class="inline-txtarea mdl-color--blue-grey-700 mdl-color-text--blue-grey-50"></textarea>
-            <textarea id="output_text" class="inline-txtarea mdl-color--blue-grey-700 mdl-color-text--blue-grey-50"></textarea>
+            <textarea id="input_text" class="inline-txtarea "></textarea>
+            <textarea id="output_text" class="inline-txtarea "></textarea>
         </center>
     </div>
 
