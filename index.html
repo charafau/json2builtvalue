@@ -1,50 +1,62 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="scaffolded-by" content="https://github.com/google/stagehand">
-    <title>json2builtval</title>
+    <title>Json to built_value generator</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
     <script defer src="main.dart.js"></script>
     <style>
-    .inline-div {
-    display:inline-block;
-    width: 100%;
-    height: 100%;
+        .inline-div {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            margin-top: 10px;
+        }
 
-    margin: 0 auto;
-}
         .inline-txtarea {
-        width: 48%;
-   height: 90vh;
-    border : 2px solid grey;
-
-    margin: 0 auto;
-}
-
-
-
-
+            width: 48%;
+            height: 90vh;
+            border: 1px solid #eeeeee;
+            /* color: #ffffff; */
+            font-size: 11pt;
+            margin: 0 auto;
+            /* background-color: #37373F; */
+        }
     </style>
 </head>
 
-<body>
+<body >
 
-<div style="margin-left: 24px;">
-    <h2 style="display: inline-block;">Json to Dart built_value class converter</h2>
-    Root class name: <input id="root_class_name" type="text" value="Root"></input>
-    <input id="convert" type="submit" value="Convert"></input>
-</div>
-<div id="texts" class="inline-div">
-    <center>
-        <textarea id="input_text" class="inline-txtarea"></textarea>
-        <textarea id="output_text" class="inline-txtarea"></textarea>
-    </center>
-</div>
+    <!-- <div style="margin-left: 24px;">
+        <h2 style="display: inline-block;">Json to Dart built_value class converter</h2>
+        Root class name:
+        <input id="root_class_name" type="text" value="RootDto"></input>
+        <input id="convert" type="submit" value="Convert"></input>
+    </div> -->
+    <div class="mdl-layout__header-row header" >
+        <span class="mdl-layout-title">Json to Dart built_value class converter </span>
+        <div style="margin-left: 10px;">
+            <input id="root_class_name" type="text" value="RootDto"></input>
+            <input id="convert" type="submit" value="Convert"></input>
+        </div>
+    </div>
+    <div id="texts" class="inline-div">
+        <center>
+            <textarea id="input_text" class="inline-txtarea "></textarea>
+            <textarea id="output_text" class="inline-txtarea "></textarea>
+        </center>
+    </div>
 
 </body>
+
 </html>
